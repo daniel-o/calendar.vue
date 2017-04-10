@@ -1,5 +1,5 @@
 <template id="toolbar-vue">
 <header>
-	<div class="cal-month">{{ month }}</div>
+	<div class="cal-month">{{ monthName }}</div>
 </header>
 </template>
