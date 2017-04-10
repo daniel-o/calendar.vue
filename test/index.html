@@ -4,13 +4,16 @@
 		<script src="../dist/calendar.vue.js"></script>
 	</head>
 	<body>
-		<div id="calendar"></div>
+		<div id="calendar">
+			<cal></cal>
+		</div>
 
 		<script>
-			const cal = new MonthVue();
-			console.log( cal );
 			const app = new Vue( {
-				el: "#calendar"
+				el: "#calendar",
+				components: {
+					cal: Calendar
+				}
 			} );
 		</script>
 	</body>
