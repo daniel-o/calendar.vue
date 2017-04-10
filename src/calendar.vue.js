@@ -1,8 +1,9 @@
-const Header = require( "./header.js" ).Header;
+const CalendarTemplate = require( "./vues/calendar.vue" );
+const toolbar = require( "./header.js" ).Header;
 
 module.export = Calendar = Vue.extend( {
-	template: "<div class='calendar'><cal-header></cal-header></div>",
+	mixins: [ CalendarTemplate ],
 	components: {
-		"cal-header": Header
+		toolbar
 	}
 } );
