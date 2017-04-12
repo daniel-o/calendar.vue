@@ -12,8 +12,6 @@ exports.Header = Vue.extend( {
 	methods: {
 		startWeekDate: function() {
 			const day = this.currentDate.getDate() - this.currentDate.getDay();
-			console.log( this.currentDate );
-			console.log( this.currentDate.setDate( day ) );
 			return this.currentDate.setDate( day );
 		},
 
