@@ -16,7 +16,8 @@ exports.Header = Vue.extend( {
 		},
 
 		endWeekDate: function() {
-			const day = 6 - this.currentDate.getDay() + this.currentDate.getDate();
+			const weekLength = 6;
+			const day = weekLength - this.currentDate.getDay() + this.currentDate.getDate();
 			return this.currentDate.setDate( day );
 		},
 
