@@ -23,10 +23,6 @@ exports.Header = Vue.extend( {
 
 		monthLength: function() {
 			return new Date( this.currentDate.setDate( 0 ) ).getDate();
-		},
-
-		splitMonth: function() {
-			return ( this.rawStartWeekDate() < 0 ) || ( this.rawEndWeekDate() > this.monthLength() );
 		}
 	},
 
