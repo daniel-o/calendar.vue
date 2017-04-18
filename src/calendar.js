@@ -8,7 +8,10 @@
  **/
 function calendar() {
 	var currentDate = UTCDateTime( Date.now() );
-	const events = {};
+	const data = {
+		events: new Object(),
+		selectedDate: Date.now()
+	};
 
 	function addEvent( date, event ) {
 		const utcDate = UTCDateTime( date );
@@ -46,6 +49,12 @@ function calendar() {
 				date.getUTCHours(),
 				date.getUTCMinutes()
 			);
+	}
+
+	function changeMonth( delta ) {
+		const date = new Date( data.selectedDate );
+		const currentMonth = date.getMonth();
+		data.selectedDate = date.setMonth( currentMonth + delta );
 	}
 
 	return { 
