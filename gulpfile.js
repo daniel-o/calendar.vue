@@ -23,3 +23,5 @@ gulp.task( "dist", () =>
 gulp.task( "test", () =>
 	gulp.src( "test/**/*.test.js" ).pipe( jasmine() )
 );
+
+gulp.task( "default", [ "dist" ] );
