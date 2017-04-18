@@ -4,7 +4,7 @@ const webpack = require( "webpack-stream" );
 const vueLoader = require( "vue-loader" );
 
 gulp.task( "dist", () =>
-		gulp.src( "src/calendar.vue.js" )
+		gulp.src( "src/calendar.vue" )
 			.pipe( webpack( {
 				module: { loaders: [ {
 					test: /vue$/,
