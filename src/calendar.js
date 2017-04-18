@@ -6,11 +6,10 @@
  * 		"13:30:00" : [ { event: data } ]
  * 	}
  **/
-function calendar() {
-	var currentDate = UTCDateTime( Date.now() );
+function Calendar() {
 	const data = {
 		events: new Object(),
-		selectedDate: Date.now()
+		selectedDate: UTCDateTime( Date.now() )
 	};
 
 	function addEvent( date, event ) {
@@ -52,15 +51,20 @@ function calendar() {
 	}
 
 	function changeMonth( delta ) {
-		const date = new Date( data.selectedDate );
+		const date = new UTCDateTime( data.selectedDate );
 		const currentMonth = date.getMonth();
 		data.selectedDate = date.setMonth( currentMonth + delta );
 	}
 
 	return { 
-		events,
-		addEvent
+		props: {
+			events: { default: new Object() },
+			selectedDate: { default: Date.now() }
+		},
+		methods: {
+			addEvent
+		}
 	}
 }
 
-module.exports = calendar;
+module.exports = new Calendar();
