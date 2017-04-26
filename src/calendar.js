@@ -58,7 +58,10 @@ function Calendar() {
 
 	return { 
 		props: {
-			events: { default: new Object() },
+			events: {
+				type: Object,
+				default: () => new Object()
+			},
 			selectedDate: { default: Date.now() }
 		},
 		methods: {
