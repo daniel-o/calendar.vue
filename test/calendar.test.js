@@ -1,9 +1,13 @@
-const Calendar = require( "../src/calendar.js" );
+const CalendarSource = require( "../src/calendar.js" );
+const Vue = require( "vue" );
 
 /*
  * NOTE: When constructing a Date object all month values are 0 based.
  * So when comparing output values increment the number by one.
  */
+const Calendar = Vue.extend( {
+	mixins: [ CalendarSource ]
+} );
 
 describe( "Calendar", function() {
 	describe( "addEvent", function() {
