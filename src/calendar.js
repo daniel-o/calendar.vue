@@ -78,4 +78,4 @@ function Calendar() {
 	}
 }
 
-module.exports = new Calendar();
+module.exports = Calendar;
