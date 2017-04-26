@@ -9,7 +9,7 @@
 	const CalendarSource = require( "./calendar.js" );
 
 	module.exports = Calendar = {
-		mixins: [ CalendarSource ],
+		mixins: [ new CalendarSource() ],
 		components: {
 			toolbar
 		}
