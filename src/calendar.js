@@ -63,12 +63,12 @@ function Calendar() {
 		props: {
 			events: {
 				type: Object,
-				default: () => new Object()
+				default: () => data.events
 			},
 
 			selectedDate: {
-				type: Number,
-				default: () => Date.now()
+				type: Date,
+				default: () => data.selectedDate
 			}
 		},
 		methods: {
