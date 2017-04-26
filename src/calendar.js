@@ -72,7 +72,8 @@ function Calendar() {
 			}
 		},
 		methods: {
-			addEvent
+			addEvent,
+			changeMonth
 		}
 	}
 }
