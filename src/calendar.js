@@ -12,9 +12,12 @@ function Calendar() {
 		selectedDate: UTCDateTime( Date.now() )
 	};
 
+	/**
+	 * Mutating the data.events object to add an event object.
+	 **/
 	function addEvent( date, event ) {
 		const utcDate = UTCDateTime( date );
-		const dateBucket = eventEntry( events, dateStamp( utcDate ), new Object() );
+		const dateBucket = eventEntry( data.events, dateStamp( utcDate ), new Object() );
 		const timeBucket = eventEntry( dateBucket, timeStamp( utcDate ), new Array() );
 		
 		return timeBucket.push( event );
