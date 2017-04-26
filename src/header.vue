@@ -1,6 +1,6 @@
 <template id="toolbar-vue">
 	<header >
-		<dateRange :start="startWeekDate()" :end="endWeekDate()"></dateRange>
+		<dateRange :start="startWeekDate" :end="endWeekDate"></dateRange>
 	</header>
 </template>
 
@@ -14,7 +14,7 @@
 			dateRange: RangeLabel
 		},
 
-		methods: {
+		computed: {
 			startWeekDate: function() {
 				const day = this.currentDate.getDate() - this.currentDate.getDay();
 				return this.currentDate.setDate( day );
@@ -28,10 +28,8 @@
 
 			monthLength: function() {
 				return new Date( this.currentDate.setDate( 0 ) ).getDate();
-			}
-		},
+			},
 
-		computed: {
 			currentDate: function() {
 				return new Date( this.date );
 			}
