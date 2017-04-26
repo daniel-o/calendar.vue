@@ -62,7 +62,11 @@ function Calendar() {
 				type: Object,
 				default: () => new Object()
 			},
-			selectedDate: { default: Date.now() }
+
+			selectedDate: {
+				type: Number,
+				default: () => Date.now()
+			}
 		},
 		methods: {
 			addEvent
