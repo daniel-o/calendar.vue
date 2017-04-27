@@ -22,7 +22,12 @@ gulp.task( "dist", () =>
 
 gulp.task( "test", () =>
 	gulp.src( "test/**/*.test.js" )
-		.pipe( jasmine( { config: { helpers: [ "test/helpers/load-dependencies.js" ] } } ) )
+		.pipe( jasmine( {
+			config: {
+				helpers: [ "test/helpers/load-dependencies.js" ],
+				includeStackTrace: true
+			}
+		} ) )
 );
 
 gulp.task( "default", [ "dist" ] );
