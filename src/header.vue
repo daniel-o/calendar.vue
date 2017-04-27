@@ -3,6 +3,7 @@
 		<dateRange :start="startWeekDate" :end="endWeekDate"></dateRange>
 
 		<div class="date-control">
+			<input type="button" value="<" v-on:click="decrementDate" />
 			<input type="button" value=">" v-on:click="incrementDate" />
 		</div>
 	</header>
@@ -23,12 +24,15 @@
 				return this.date.getDate() - this.date.getDay();
 			},
 
-			// TODO: This will eventually send contextual events like,
-			// "incrementMonth" and "incrementDay"
 			incrementDate: function() {
 				this.$emit( "incrementDate" );
+			},
+
+			decrementDate: function() {
+				this.$emit( "decrementDate" );
 			}
 		},
+
 		computed: {
 			startWeekDate: function() {
 				return new Date( this.date ).setDate( this.startDifference() );
