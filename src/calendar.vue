@@ -62,7 +62,7 @@
 			},
 
 			addEvent: function( date, event ) {
-				const utcDate = UTCDateTime( date );
+				const utcDate = DateUtil.toUTC( date );
 				const dateBucket = eventEntry( this.events, DateUtil.dateStamp( utcDate ), new Object() );
 				const timeBucket = eventEntry( dateBucket, DateUtil.timeStamp( utcDate ), new Array() );
 
