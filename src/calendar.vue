@@ -14,6 +14,7 @@
 			ref="toolbar"
 			v-on:incrementDate="incrementDate"
 			v-on:decrementDate="decrementDate"
+			v-on:todayDate="setToday"
 		></toolbar>
 	</div>
 </template>
@@ -54,6 +55,10 @@
 
 			decrementDate: function() {
 				this.changeMonth( -1 );
+			},
+
+			setToday: function() {
+				this.selectedDate = DateUtil.toUTC( Date.now() );
 			},
 
 			addEvent: function( date, event ) {
