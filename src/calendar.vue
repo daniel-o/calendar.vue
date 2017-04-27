@@ -16,22 +16,13 @@
 
 <script>
 	const toolbar = require( "./header.vue" );
-	const CalendarSource = require( "./calendar.js" );
+	const DateUtil = require( "./date-util.js" );
 
 	function eventEntry( obj, property, value ) {
 		return obj.hasOwnProperty( property ) ?
 			obj[ property ] :
 			obj[ property ] = value;
 	}
-
-	function dateStamp( date ) {
-		return date.toLocaleDateString();
-	}
-
-	function timeStamp( date ) {
-		return date.toLocaleTimeString( "UTC", { hour12: false }  );
-	}
-
 
 	module.exports = Calendar = {
 		props: {
@@ -42,7 +33,7 @@
 
 			selectedDate: {
 				type: Date,
-				default: () => UTCDateTime( Date.now() )
+				default: () => DateUtil.toUTC( Date.now() )
 			}
 		},
 
@@ -57,16 +48,16 @@
 
 			addEvent: function( date, event ) {
 				const utcDate = UTCDateTime( date );
-				const dateBucket = eventEntry( data.events, dateStamp( utcDate ), new Object() );
-				const timeBucket = eventEntry( dateBucket, timeStamp( utcDate ), new Array() );
+				const dateBucket = eventEntry( this.events, DateUtil.dateStamp( utcDate ), new Object() );
+				const timeBucket = eventEntry( dateBucket, DateUtil.timeStamp( utcDate ), new Array() );
 
 				return timeBucket.push( event );
 			},
 
 			changeMonth: function( delta ) {
-			 const date = new UTCDateTime( data.selectedDate );
+			 const date = new DateUtil.toUTC( this.selectedDate );
 			 const currentMonth = date.getMonth();
-			 data.selectedDate = date.setMonth( currentMonth + delta );
+			 this.selectedDate = DateUtil.toUTC( date.setMonth( currentMonth + delta ) );
 			}
 		}
 	}
