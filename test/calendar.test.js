@@ -1,5 +1,9 @@
-const Vue = require( "vue" );
-const Calendar = require( "../dist/calendar.vue.js" );
+const Cal = require( "../dist/calendar.vue.js" );
+
+function CalendarVue( properties = {} ) {
+	const Component = Vue.extend( Calendar );
+	return new Component( { propsData: properties } ).$mount();
+}
 
 /*
  * NOTE: When constructing a Date object all month values are 0 based.
@@ -9,7 +13,7 @@ describe( "Calendar", function() {
 	describe( "addEvent", function() {
 		it( "will construct the date and time buckets", () => {
 			const date = new Date( 2017, 3, 5, 9, 30 );
-			const cal = new Calendar();
+			const cal = new CalendarVue();
 			cal.addEvent( date, { one: 1 } );
 
 			// NOTE: The date will be converted to UTC timezone after being passed
@@ -25,7 +29,7 @@ describe( "Calendar", function() {
 
 		it( "will append and event to previously added time buckets", () => {
 			const date = new Date( 2017, 3, 5, 9, 30 );
-			const cal = new Calendar();
+			const cal = new CalendarVue();
 			cal.addEvent( date, { one: 1 } );
 			cal.addEvent( date, { two : 2 } );
 
@@ -46,7 +50,7 @@ describe( "Calendar", function() {
 			const two = new Date( 2017, 3, 5, 4, 15 );
 			const three = new Date( 2019, 6, 6, 6, 00 );
 
-			const cal = new Calendar();
+			const cal = new CalendarVue();
 			cal.addEvent( one, { one: 1 } );
 			cal.addEvent( two, { two : 2 } );
 			cal.addEvent( three, { three: 3 } );
