@@ -9,8 +9,7 @@
 
 <template id="calendar-vue">
 	<div class="calendar">
-		<toolbar :date="selectedDate" ref="toolbar"></toolbar>
-		<div>{{ selectedDate }}</div>
+		<toolbar :date="selectedDate" ref="toolbar" v-on:incrementDate="incrementDate"></toolbar>
 	</div>
 </template>
 
@@ -42,6 +41,8 @@
 		},
 
 		methods: {
+			// TODO: This will eventually send contextual events like,
+			// "incrementMonth" and "incrementDay"
 			incrementDate: function() {
 				this.changeMonth( 1 );
 			},
