@@ -20,7 +20,7 @@ gulp.task( "dist", () =>
 			.pipe( gulp.dest( "dist/" ) )
 );
 
-gulp.task( "test", () =>
+gulp.task( "test", [ "dist" ], () =>
 	gulp.src( "test/**/*.test.js" )
 		.pipe( jasmine( {
 			config: {
