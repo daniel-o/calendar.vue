@@ -1,17 +1,10 @@
-const CalendarSource = require( "../src/calendar.js" );
 const Vue = require( "vue" );
+const Calendar = require( "../dist/calendar.vue.js" );
 
 /*
  * NOTE: When constructing a Date object all month values are 0 based.
  * So when comparing output values increment the number by one.
  */
-function Calendar() {
-	const cal = Vue.extend( {
-		mixins: [ new CalendarSource() ]
-	} );
-	return new cal ();
-}
-
 describe( "Calendar", function() {
 	describe( "addEvent", function() {
 		it( "will construct the date and time buckets", () => {
