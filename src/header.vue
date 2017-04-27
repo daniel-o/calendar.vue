@@ -5,6 +5,7 @@
 		<div class="date-control">
 			<input type="button" value="<" v-on:click="decrementDate" />
 			<input type="button" value=">" v-on:click="incrementDate" />
+			<input type="button" value="Today" v-on:click="todayDate" />
 		</div>
 	</header>
 </template>
@@ -30,6 +31,10 @@
 
 			decrementDate: function() {
 				this.$emit( "decrementDate" );
+			},
+
+			todayDate: function() {
+				this.$emit( "todayDate" );
 			}
 		},
 
