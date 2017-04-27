@@ -1,6 +1,10 @@
 <template id="toolbar-vue">
 	<header >
 		<dateRange :start="startWeekDate" :end="endWeekDate"></dateRange>
+
+		<div class="date-control">
+			<input type="button" value=">" v-on:click="incrementDate" />
+		</div>
 	</header>
 </template>
 
@@ -17,8 +21,13 @@
 		methods: {
 			startDifference: function() {
 				return this.date.getDate() - this.date.getDay();
-			}
+			},
 
+			// TODO: This will eventually send contextual events like,
+			// "incrementMonth" and "incrementDay"
+			incrementDate: function() {
+				this.$emit( "incrementDate" );
+			}
 		},
 		computed: {
 			startWeekDate: function() {
