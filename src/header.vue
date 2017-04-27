@@ -14,10 +14,15 @@
 			dateRange: RangeLabel
 		},
 
+		methods: {
+			startDifference: function() {
+				return this.date.getDate() - this.date.getDay();
+			}
+
+		},
 		computed: {
 			startWeekDate: function() {
-				const day = this.currentDate.getDate() - this.currentDate.getDay();
-				return this.currentDate.setDate( day );
+				return new Date( this.date ).setDate( this.startDifference() );
 			},
 
 			endWeekDate: function() {
