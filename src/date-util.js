@@ -1,9 +1,13 @@
-function DateUtil() {
-	/**
-	 * Because there's not a `toUTCDate()` function.
-	 * I'm dropping the second values.
-	 **/
-	function toUTC( datetime ) {
+module.exports = {
+	dateStamp: function( date ) {
+		return date.toLocaleDateString();
+	},
+
+	timeStamp: function( date ) {
+		return date.toLocaleTimeString( "UTC", { hour12: false }  );
+	},
+
+	toUTC: function( datetime ) {
 		const date = new Date( datetime );
 		return new Date(
 				date.getUTCFullYear(),
@@ -14,10 +18,4 @@ function DateUtil() {
 				date.getUTCMinutes()
 			);
 	}
-
-	return {
-		toUTC
-	}
-}
-
-module.exports = DateUtil;
+};
