@@ -1,10 +1,12 @@
 <template id="toolbar-vue">
-	<header >
+	<header class="cal-toolbar">
 		<dateRange :start="startWeekDate" :end="endWeekDate"></dateRange>
 
 		<div class="date-control">
-			<input type="button" value="<" v-on:click="decrementDate" />
-			<input type="button" value=">" v-on:click="incrementDate" />
+			<div class="date-shift">
+				<input type="button" value="<" v-on:click="decrementDate" />
+				<input type="button" value=">" v-on:click="incrementDate" />
+			</div>
 			<input type="button" value="Today" v-on:click="todayDate" />
 		</div>
 	</header>
