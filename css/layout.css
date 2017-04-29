@@ -1,0 +1,22 @@
+.calendar {
+	display: grid;
+}
+
+header.cal-toolbar {
+	display: flex;
+
+	margin: 0;
+	padding: 1em;
+}
+
+header.cal-toolbar > * {
+	margin-right: 1em;
+}
+
+header.cal-toolbar > *:last {
+	margin: 0;
+}
+
+.cal-date-control {
+	word-spacing: -1em;
+}
