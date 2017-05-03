@@ -1,8 +1,12 @@
 .calendar {
 	display: grid;
+	grid-template-columns: repeat( 10, 1fr );
 }
 
 header.cal-toolbar {
+	grid-area: "cal-header";
+	grid-column: 1 / 11;
+
 	display: flex;
 
 	margin: 0;
@@ -10,7 +14,12 @@ header.cal-toolbar {
 }
 
 header.cal-toolbar > * {
+	display: inline;
 	margin-right: 1em;
+}
+
+header.cal-toolbar > .cal-date {
+	flex-basis: 20em;
 }
 
 header.cal-toolbar > *:last {
