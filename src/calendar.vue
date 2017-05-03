@@ -16,12 +16,15 @@
 			v-on:decrementDate="decrementDate"
 			v-on:todayDate="setToday"
 		></toolbar>
+
+		<month :date="selectedDate"></month>
 	</div>
 </template>
 
 <script>
 	const toolbar = require( "./header.vue" );
 	const DateUtil = require( "./date-util.js" );
+	const MonthVue = require( "./month.vue" );
 
 	function eventEntry( obj, property, value ) {
 		return obj.hasOwnProperty( property ) ?
@@ -43,7 +46,8 @@
 		},
 
 		components: {
-			toolbar
+			toolbar,
+			month: MonthVue
 		},
 
 		methods: {
