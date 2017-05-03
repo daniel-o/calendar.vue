@@ -11,6 +11,11 @@
 		computed: {
 			currentMonth: function() {
 				return this.date.getMonth();
+			},
+
+			firstDate: function() {
+				const date = new Date( this.date );
+				return new Date( date.getFullYear(), date.getMonth(), 1 );
 			}
 		}
 	};
