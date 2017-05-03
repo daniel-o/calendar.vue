@@ -21,6 +21,12 @@
 			lastDate: function() {
 				const date = new Date( this.date );
 				return new Date( date.getFullYear(), date.getMonth() + 1, 0 );
+			},
+
+			dateRange: function() {
+				const weekLength = 6;
+				const end = weekLength - this.lastDate.getDay();
+				return this.lastDate.getDate() + this.firstDate.getDay() + end;
 			}
 		}
 	};
