@@ -8,6 +8,14 @@
 	module.exports = {
 		props: [ "date" ],
 
+		methods: {
+			getDay: function( date ) {
+				const delta = date - this.firstDate.getDay();
+				const day =  new Date( this.date ).setDate( delta );
+				return new Date( day );
+			}
+		},
+
 		computed: {
 			currentMonth: function() {
 				return this.date.getMonth();
