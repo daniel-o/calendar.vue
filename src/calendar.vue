@@ -21,6 +21,13 @@
 	</div>
 </template>
 
+<style>
+	.calendar {
+		display: grid;
+		grid-template-columns: repeat( 10, 1fr );
+	}
+</style>
+
 <script>
 	const toolbar = require( "./header.vue" );
 	const DateUtil = require( "./date-util.js" );
