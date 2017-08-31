@@ -6,12 +6,12 @@
 
 <script>
 	module.exports = {
-		props: [ "date", "state" ]
-	},
+		props: [ "date", "state" ],
 
-	methods: {
-		selectDate: function() {
-			this.$emit( "change" );
+		methods: {
+			selectDate: function() {
+				this.$emit( "change" );
+			}
 		}
 	}
 </script>
