@@ -4,8 +4,11 @@
     "vuex": "^2.3.0"
   },
   "devDependencies": {
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
     "jasmine": "^2.5.3",
     "vue-loader": "^11.3.4",
-    "vue-template-compiler": "^2.2.6"
+    "vue-template-compiler": "^2.2.6",
+    "webpack": "^3.5.5"
   }
 }
