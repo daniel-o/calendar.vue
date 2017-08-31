@@ -2,7 +2,11 @@
 	"name": "calendar.vue",
 	"version": "0.0.1",
 	"description": "A fullblown calendar component suite using VueJS",
-	"license": "MIT"
+	"license": "MIT",
+
+	"scripts": {
+		"build": "webpack"
+	},
 
   "dependencies": {
     "vue": "^2.2.6",
