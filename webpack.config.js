@@ -32,6 +32,12 @@ module.exports = {
 		]
 	},
 
+	// Might need to eventually replace server with ExpressJS server; instructions:
+	// https://webpack.js.org/guides/development/#using-webpack-dev-middleware
+	devServer: {
+		contentBase: [ "dist", "test", "node_modules/vue/dist/" ]
+	},
+
 	plugins: [
 		new ExtractTextPlugin( "calendar.vue.css" ),
 	]
