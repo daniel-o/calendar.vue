@@ -11,6 +11,35 @@
 	</header>
 </template>
 
+<style>
+	header.cal-toolbar {
+		grid-area: "cal-header";
+		grid-column: 1 / 11;
+
+		display: flex;
+
+		margin: 0;
+		padding: 1em;
+	}
+
+	header.cal-toolbar > * {
+		display: inline;
+		margin-right: 1em;
+	}
+
+	header.cal-toolbar > .cal-date {
+		flex-basis: 20em;
+	}
+
+	header.cal-toolbar > *:last {
+		margin: 0;
+	}
+
+	.cal-date-control {
+		word-spacing: -1em;
+	}
+</style>
+
 <script>
 	const RangeLabel = require( "./dateRange.vue" );
 

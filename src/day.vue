@@ -4,6 +4,12 @@
 	</div>
 </template>
 
+<style>
+	.cal-day {
+		padding: 0.5em;
+	}
+</style>
+
 <script>
 	module.exports = {
 		props: [ "date", "state" ],

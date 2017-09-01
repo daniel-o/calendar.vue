@@ -8,6 +8,16 @@
 	</div>
 </template>
 
+<style>
+	.cal-month {
+		grid-area: "cal-month";
+		grid-column: minmax( 2fr, auto );
+
+		display: grid;
+		grid-template-columns: repeat( 7, 1fr );
+	}
+</style>
+
 <script>
 	const DayVue = require( "./day.vue" );
 
