@@ -33,6 +33,6 @@ module.exports = {
 	},
 
 	plugins: [
-		new ExtractTextPlugin( "calendar.css" ),
+		new ExtractTextPlugin( "calendar.vue.css" ),
 	]
 };
