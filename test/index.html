@@ -13,8 +13,13 @@
 		<script>
 			const app = new Vue( {
 				el: "#calendar",
+
 				components: {
 					cal: Calendar
+				},
+
+				render( createElement ) {
+					return createElement( Calendar );
 				}
 			} );
 		</script>
