@@ -7,7 +7,9 @@ module.exports = {
 	devtool: "source-map",
 	output: {
 		filename: "calendar.vue.js",
-		path: path.resolve( __dirname, "dist" )
+		path: path.resolve( __dirname, "dist" ),
+		library: "Calendar",
+		libraryTarget: "window"
 	},
 
 	module: {
