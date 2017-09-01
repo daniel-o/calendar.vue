@@ -4,7 +4,8 @@
   "description": "A fullblown calendar component suite using VueJS",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+		"server": "webpack-dev-server"
   },
   "dependencies": {
     "vue": "^2.4.2"
