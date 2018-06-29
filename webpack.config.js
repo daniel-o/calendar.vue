@@ -8,8 +8,7 @@ module.exports = {
 	output: {
 		filename: "calendar.vue.js",
 		path: path.resolve( __dirname, "dist" ),
-		library: "Calendar",
-		libraryTarget: "window"
+		library: "Calendar"
 	},
 
 	module: {
