@@ -16,7 +16,7 @@ module.exports = {
 		new VueLoaderPlugin(),
 
 		new MiniCssExtractPlugin({
-			filename: "[name].css",
+			filename: "calendar.vue.css",
 			chunkFilename: "[id].css"
 		})
 	],
