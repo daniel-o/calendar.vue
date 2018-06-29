@@ -3,8 +3,9 @@
 		<day
 			class="cal-date"
 			v-for="day in dateRange"
-			:date="getDay( day )">
-		</day>
+			:date="getDay( day )"
+			:key="day.valueOf()"
+		></day>
 	</div>
 </template>
 
