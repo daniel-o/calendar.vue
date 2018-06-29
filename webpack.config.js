@@ -1,5 +1,6 @@
 const path = require( "path" );
 const MiniCssExtractPlugin = require( "mini-css-extract-plugin" );
+const VueLoaderPlugin = require( "vue-loader/lib/plugin" );
 
 module.exports = {
 	entry: "./src/calendar.vue",
@@ -12,6 +13,8 @@ module.exports = {
 	},
 
 	plugins: [
+		new VueLoaderPlugin(),
+
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
 			chunkFilename: "[id].css"
