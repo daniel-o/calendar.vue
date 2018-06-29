@@ -9,20 +9,38 @@
 
 <template>
 	<div class="calendar">
-		<month-navigator>
-		</month-navigator>
+		<nav id="cal-navbar">
+			<span>...</span>
+			<toolbar :date="new Date()"></toolbar>
+		</nav>
+		<main id="cal-content">
+			<month-navigator>
+			</month-navigator>
+
+			<month :date="new Date()"></month>
+		</main>
 	</div>
 </template>
 
 <style>
 	.calendar {
-		display: grid;
-		grid-template-columns: repeat( 10, 1fr );
+		display: flex;
+		flex-direction: column;
+	}
+
+	#cal-navbar {
+		display: flex;
+	}
+
+	#cal-content {
+		display: flex;
 	}
 </style>
 
 <script>
 	import DateUtil from "./date-util.js";
+	import toolbar from "./header.vue";
+	import Month from "./month.vue";
 	import MonthNavigator from "./monthNavigator.vue";
 
 	function eventEntry( obj, property, value ) {
@@ -40,6 +58,8 @@
 		},
 
 		components: {
+			toolbar,
+			Month,
 			"month-navigator": MonthNavigator
 		},
 

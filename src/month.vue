@@ -16,6 +16,8 @@
 
 		display: grid;
 		grid-template-columns: repeat( 7, 1fr );
+
+		flex-grow: 1;
 	}
 </style>
 

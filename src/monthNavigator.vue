@@ -16,6 +16,9 @@
 	#cal-month-navigator {
 		display: flex;
 		flex-direction: column;
+
+		flex-grow: 0;
+		flex-basis: 300px;
 	}
 </style>
 
