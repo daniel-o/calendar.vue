@@ -1,5 +1,5 @@
 const path = require( "path" );
-const ExtractTextPlugin = require( "extract-text-webpack-plugin" );
+const MiniCssExtractPlugin = require( "mini-css-extract-plugin" );
 
 module.exports = {
 	entry: "./src/calendar.vue",
@@ -10,6 +10,13 @@ module.exports = {
 		path: path.resolve( __dirname, "dist" ),
 		library: "Calendar"
 	},
+
+	plugins: [
+		new MiniCssExtractPlugin({
+			filename: "[name].css",
+			chunkFilename: "[id].css"
+		})
+	],
 
 	module: {
 		rules: [
@@ -23,12 +30,10 @@ module.exports = {
 
 			{
 				test: [ /\.css$/ ],
-				use: ExtractTextPlugin.extract( {
-					use: [
-						"style-loader",
-						"css-loader"
-					 ]
-				} )
+				use: [
+					MiniCssExtractPlugin.loader,
+					"css-loader"
+				]
 			}
 		]
 	},
@@ -37,9 +42,5 @@ module.exports = {
 	// https://webpack.js.org/guides/development/#using-webpack-dev-middleware
 	devServer: {
 		contentBase: [ "dist", "test", "node_modules/vue/dist/" ]
-	},
-
-	plugins: [
-		new ExtractTextPlugin( "calendar.vue.css" ),
-	]
+	}
 };
