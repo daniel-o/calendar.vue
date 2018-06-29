@@ -9,15 +9,8 @@
 
 <template>
 	<div class="calendar">
-		<toolbar
-			:date="selectedDate"
-			ref="toolbar"
-			v-on:incrementDate="incrementDate"
-			v-on:decrementDate="decrementDate"
-			v-on:todayDate="setToday"
-		></toolbar>
-
-		<month :date="selectedDate"></month>
+		<month-navigator>
+		</month-navigator>
 	</div>
 </template>
 
@@ -29,9 +22,8 @@
 </style>
 
 <script>
-	import toolbar from "./header.vue";
 	import DateUtil from "./date-util.js";
-	import MonthVue from "./month.vue";
+	import MonthNavigator from "./monthNavigator.vue";
 
 	function eventEntry( obj, property, value ) {
 		return obj.hasOwnProperty( property ) ?
@@ -44,46 +36,20 @@
 			events: {
 				type: Object,
 				default: () => new Object()
-			},
-
-			selectedDate: {
-				type: Date,
-				default: () => DateUtil.toUTC( Date.now() )
 			}
 		},
 
 		components: {
-			toolbar,
-			month: MonthVue
+			"month-navigator": MonthNavigator
 		},
 
 		methods: {
-			// TODO: This will eventually send contextual events like,
-			// "incrementMonth" and "incrementDay"
-			incrementDate: function() {
-				this.changeMonth( 1 );
-			},
-
-			decrementDate: function() {
-				this.changeMonth( -1 );
-			},
-
-			setToday: function() {
-				this.selectedDate = DateUtil.toUTC( Date.now() );
-			},
-
 			addEvent: function( date, event ) {
 				const utcDate = DateUtil.toUTC( date );
 				const dateBucket = eventEntry( this.events, DateUtil.dateStamp( utcDate ), new Object() );
 				const timeBucket = eventEntry( dateBucket, DateUtil.timeStamp( utcDate ), new Array() );
 
 				return timeBucket.push( event );
-			},
-
-			changeMonth: function( delta ) {
-			 const date = new DateUtil.toUTC( this.selectedDate );
-			 const currentMonth = date.getMonth();
-			 this.selectedDate = DateUtil.toUTC( date.setMonth( currentMonth + delta ) );
 			}
 		}
 	}
