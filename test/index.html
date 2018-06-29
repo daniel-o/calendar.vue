@@ -10,16 +10,12 @@
 			<cal></cal>
 		</div>
 
-		<script>
+		<script type="module">
 			const app = new Vue( {
 				el: "#calendar",
 
-				components: {
-					cal: Calendar
-				},
-
 				render( createElement ) {
-					return createElement( Calendar );
+					return createElement( Calendar.default );
 				}
 			} );
 		</script>
