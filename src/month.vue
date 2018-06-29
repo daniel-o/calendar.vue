@@ -19,9 +19,9 @@
 </style>
 
 <script>
-	const DayVue = require( "./day.vue" );
+	import DayVue from "./day.vue";
 
-	module.exports = {
+	export default {
 		props: [ "date" ],
 
 		components: {

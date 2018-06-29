@@ -11,9 +11,9 @@
 </template>
 
 <script>
-	const DateLabel = require( "./dateLabel.vue" );
+	import DateLabel from "./dateLabel.vue";
 	
-	module.exports = {
+	export default {
 		props: [ "start", "end" ],
 
 		components: {

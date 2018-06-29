@@ -11,7 +11,7 @@
 </style>
 
 <script>
-	module.exports = {
+	export default {
 		props: [ "date", "state" ],
 
 		methods: {

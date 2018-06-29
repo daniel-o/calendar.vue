@@ -41,9 +41,9 @@
 </style>
 
 <script>
-	const RangeLabel = require( "./dateRange.vue" );
+	import RangeLabel from "./dateRange.vue";
 
-	module.exports = {
+	export default {
 		props: [ "date" ],
 
 		components: {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-	module.exports = Vue.extend( {
+	export default {
 		props: [ "date", "displaymonth", "displayyear" ],
 
 		computed: {
@@ -34,5 +34,5 @@
 				return this.displayyear === undefined || ! this.displayyear;
 			}
 		}
-	} );
+	}
 </script>
