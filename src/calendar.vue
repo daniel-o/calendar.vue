@@ -7,7 +7,7 @@
  * 	}
  **/
 
-<template id="calendar-vue">
+<template>
 	<div class="calendar">
 		<toolbar
 			:date="selectedDate"
@@ -29,9 +29,9 @@
 </style>
 
 <script>
-	const toolbar = require( "./header.vue" );
-	const DateUtil = require( "./date-util.js" );
-	const MonthVue = require( "./month.vue" );
+	import toolbar from "./header.vue";
+	import DateUtil from "./date-util.js";
+	import MonthVue from "./month.vue";
 
 	function eventEntry( obj, property, value ) {
 		return obj.hasOwnProperty( property ) ?
@@ -39,7 +39,7 @@
 			obj[ property ] = value;
 	}
 
-	module.exports = Calendar = {
+	export default {
 		props: {
 			events: {
 				type: Object,
