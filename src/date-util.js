@@ -17,3 +17,25 @@ export function toUTC( datetime ) {
 		date.getUTCMinutes()
 	);
 }
+
+function startDifference( date ) {
+	return date.getDate() - date.getDay();
+}
+
+/**
+ * Wrapped in a new Date object so that set Date doesn't affect the
+ * original passed date object.
+ */
+export function startWeekDate( date ) {
+	return new Date( date ).setDate( startDifference( date ) );
+}
+
+export function endWeekDate( date ) {
+	const weekLength = 6;
+	const day = weekLength - date.getDay() + date.getDate();
+	return new Date( date ).setDate( day );
+}
+
+export function monthLength( date ) {
+	return new Date( date ).setDate( 0 ).getDate();
+}
