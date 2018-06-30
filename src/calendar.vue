@@ -63,7 +63,7 @@
 </style>
 
 <script>
-	import DateUtil from "./date-util.js";
+	import { dateStamp, timeStamp, toUTC } from "./date-util.js";
 	import toolbar from "./header.vue";
 	import Month from "./month.vue";
 	import MonthNavigator from "./monthNavigator.vue";
@@ -90,9 +90,9 @@
 
 		methods: {
 			addEvent: function( date, event ) {
-				const utcDate = DateUtil.toUTC( date );
-				const dateBucket = eventEntry( this.events, DateUtil.dateStamp( utcDate ), new Object() );
-				const timeBucket = eventEntry( dateBucket, DateUtil.timeStamp( utcDate ), new Array() );
+				const utcDate = toUTC( date );
+				const dateBucket = eventEntry( this.events, dateStamp( utcDate ), new Object() );
+				const timeBucket = eventEntry( dateBucket, timeStamp( utcDate ), new Array() );
 
 				return timeBucket.push( event );
 			}
