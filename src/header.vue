@@ -40,6 +40,7 @@
 
 <script>
 	import RangeLabel from "./dateRange.vue";
+	import { startWeekDate, endWeekDate, monthLength } from "./date-util.js";
 
 	export default {
 		props: [ "date" ],
@@ -67,22 +68,16 @@
 		},
 
 		computed: {
-			startWeekDate: function() {
-				return new Date( this.date ).setDate( this.startDifference() );
+			startWeekDate() {
+				return startWeekDate( this.date );
 			},
 
-			endWeekDate: function() {
-				const weekLength = 6;
-				const day = weekLength - this.currentDate.getDay() + this.currentDate.getDate();
-				return this.currentDate.setDate( day );
+			endWeekDate() {
+				return endWeekDate( this.date );
 			},
 
-			monthLength: function() {
-				return new Date( this.currentDate.setDate( 0 ) ).getDate();
-			},
-
-			currentDate: function() {
-				return new Date( this.date );
+			monthLength() {
+				return monthLength( this.date );
 			}
 		}
 	}
