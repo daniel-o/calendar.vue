@@ -28,13 +28,13 @@
 <script>
 	import toolbar from "./header.vue";
 	import MonthVue from "./month.vue";
-	import DateUtil from "./date-util.js";
+	import { toUTC } from "./date-util.js";
 
 	export default {
 		props: {
 			selectedDate: {
 				type: Date,
-				default: () => DateUtil.toUTC( Date.now() )
+				default: () => toUTC( Date.now() )
 			}
 		},
 
@@ -45,9 +45,9 @@
 
 		methods: {
 			changeMonth: function( delta ) {
-				const date = new DateUtil.toUTC( this.selectedDate );
+				const date = toUTC( this.selectedDate );
 				const currentMonth = date.getMonth();
-				this.selectedDate = DateUtil.toUTC( date.setMonth( currentMonth + delta ) );
+				this.selectedDate = toUTC( date.setMonth( currentMonth + delta ) );
 			},
 
 			incrementDate: function() {
@@ -59,7 +59,7 @@
 			},
 
 			setToday: function() {
-				this.selectedDate = DateUtil.toUTC( Date.now() );
+				this.selectedDate = toUTC( Date.now() );
 			}
 		}
 	}
