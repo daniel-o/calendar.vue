@@ -3,8 +3,8 @@
 		<dateRange :start="startWeekDate" :end="endWeekDate"></dateRange>
 
 		<div class="cal-date-control">
-			<input type="button" value="<" v-on:click="decrementDate" />
-			<input type="button" value=">" v-on:click="incrementDate" />
+			<input type="button" value="<" v-on:click="decrementMonth" />
+			<input type="button" value=">" v-on:click="incrementMonth" />
 		</div>
 
 		<input type="button" value="Today" v-on:click="todayDate" />
@@ -50,12 +50,12 @@
 		},
 
 		methods: {
-			incrementDate() {
-				this.$emit( "incrementDate" );
+			incrementMonth() {
+				this.$emit( "incrementMonth" );
 			},
 
-			decrementDate() {
-				this.$emit( "decrementDate" );
+			decrementMonth() {
+				this.$emit( "decrementMonth" );
 			},
 
 			todayDate() {

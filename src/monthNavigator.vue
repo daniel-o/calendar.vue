@@ -3,8 +3,8 @@
 		<toolbar
 			:date="selectedDate"
 			ref="toolbar"
-			v-on:incrementDate="incrementDate"
-			v-on:decrementDate="decrementDate"
+			v-on:incrementMonth="incrementDate"
+			v-on:decrementMonth="decrementDate"
 			v-on:todayDate="setToday"
 		></toolbar>
 
