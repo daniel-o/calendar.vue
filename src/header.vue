@@ -50,19 +50,15 @@
 		},
 
 		methods: {
-			startDifference: function() {
-				return this.date.getDate() - this.date.getDay();
-			},
-
-			incrementDate: function() {
+			incrementDate() {
 				this.$emit( "incrementDate" );
 			},
 
-			decrementDate: function() {
+			decrementDate() {
 				this.$emit( "decrementDate" );
 			},
 
-			todayDate: function() {
+			todayDate() {
 				this.$emit( "todayDate" );
 			}
 		},
