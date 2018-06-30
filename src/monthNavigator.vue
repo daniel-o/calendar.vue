@@ -17,8 +17,11 @@
 		display: flex;
 		flex-direction: column;
 
-		flex-grow: 0;
-		flex-basis: 300px;
+		padding: 1em;
+
+		border-width: 0 1px 0 0;
+		border-color: grey;
+		border-style: solid;
 	}
 </style>
 

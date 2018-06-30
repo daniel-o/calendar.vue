@@ -14,16 +14,14 @@
 <style>
 	header.cal-toolbar {
 		grid-area: "cal-header";
-		grid-column: 1 / 11;
 
 		display: flex;
 
 		margin: 0;
-		padding: 1em;
 	}
 
 	header.cal-toolbar > * {
-		display: inline;
+		display: flex;
 		margin-right: 1em;
 	}
 
