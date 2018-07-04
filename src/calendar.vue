@@ -11,15 +11,15 @@
 	<div id="calendar">
 		<nav id="cal-navbar">
 			<span>...</span>
-			<toolbar :date="new Date()"></toolbar>
+			<toolbar :date="selectedDate"></toolbar>
 		</nav>
 		<main id="cal-content">
 			<div>
-				<month-navigator>
+				<month-navigator :date="selectedDate">
 				</month-navigator>
 			</div>
 
-			<month id="cal-main" :date="new Date()"></month>
+			<month id="cal-main" :date="selectedDate"></month>
 		</main>
 	</div>
 </template>
@@ -79,6 +79,12 @@
 			events: {
 				type: Object,
 				default: () => new Object()
+			}
+		},
+
+		data: function() {
+			return {
+				selectedDate: new Date()
 			}
 		},
 
