@@ -11,7 +11,7 @@
 	<div id="calendar">
 		<nav id="cal-navbar">
 			<span>...</span>
-			<toolbar :date="selectedDate"></toolbar>
+			<toolbar :date="selectedDate" @changeDate="changeDate"></toolbar>
 		</nav>
 		<main id="cal-content">
 			<div>
@@ -86,6 +86,12 @@
 			toolbar,
 			Month,
 			"month-navigator": MonthNavigator
+		},
+
+		methods: {
+			changeDate( date ) {
+				this.selectedDate = new Date( date );
+			}
 		}
 	}
 </script>
