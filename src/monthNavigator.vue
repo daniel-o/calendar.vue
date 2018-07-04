@@ -32,7 +32,7 @@
 
 	export default {
 		props: {
-			selectedDate: {
+			date: {
 				type: Date,
 				default: () => toUTC( Date.now() )
 			}
@@ -41,6 +41,12 @@
 		components: {
 			toolbar,
 			"month": MonthVue
+		},
+
+		data: function() {
+			return {
+				selectedDate: this.date
+			}
 		},
 
 		methods: {
