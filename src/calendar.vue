@@ -68,12 +68,6 @@
 	import Month from "./month.vue";
 	import MonthNavigator from "./monthNavigator.vue";
 
-	function eventEntry( obj, property, value ) {
-		return obj.hasOwnProperty( property ) ?
-			obj[ property ] :
-			obj[ property ] = value;
-	}
-
 	export default {
 		props: {
 			events: {
@@ -92,16 +86,6 @@
 			toolbar,
 			Month,
 			"month-navigator": MonthNavigator
-		},
-
-		methods: {
-			addEvent: function( date, event ) {
-				const utcDate = toUTC( date );
-				const dateBucket = eventEntry( this.events, dateStamp( utcDate ), new Object() );
-				const timeBucket = eventEntry( dateBucket, timeStamp( utcDate ), new Array() );
-
-				return timeBucket.push( event );
-			}
 		}
 	}
 </script>
