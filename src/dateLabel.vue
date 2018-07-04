@@ -1,37 +1,47 @@
 <template>
 	<span class="cal-date label">
-		<span class="cal-month-label" v-if="displayMonth() === true">{{ monthName }}</span>
-		<span class="cal-date-label">{{ day }}</span>
-		<span class="cal-year-label" v-if="displayYear() === true">, {{ fullYear }}</span>
+		<span v-if="isDisplay( 'year' )">
+			{{ fullYear( this.date ) }}
+		</span>
+
+		<span v-if="isDisplay( 'month' )">
+			{{ monthLabel( this.date ) }}
+		</span>
 	</span>
 </template>
 
 <script>
 	export default {
-		props: [ "date", "displaymonth", "displayyear" ],
-
-		computed: {
-			monthName: function() {
-				return new Date( this.date )
-					.toLocaleString( "en-us", { month: "long" } );
-			},
-
-			day: function() {
-				return new Date( this.date ).getDate();
-			},
-
-			fullYear: function() {
-				return new Date( this.date ).getFullYear();
+		props: {
+			"date": Date,
+			"display": {
+				type: String,
+				default: "month",
+				validator: ( value ) =>
+					[ "week", "month", "year" ]
+						.includes( value.trim().toLowerCase() )
 			}
 		},
 
 		methods: {
-			displayMonth: function() {
-				return this.displaymonth === undefined || ! this.displaymonth;
+			monthName: function( date ) {
+				return new Date( date )
+					.toLocaleString( "en-us", { month: "long" } );
 			},
 
-			displayYear: function() {
-				return this.displayyear === undefined || ! this.displayyear;
+			fullYear: function( date ) {
+				return date.getFullYear();
+			},
+
+			isDisplay( value ) {
+				return this.display === value;
+			},
+
+			monthLabel( date, showYear = true ) {
+				// yearLabel is defined in preperation for calling multiple monthLabel
+				// instances within weekLabel when the week includes days from both Dec & Jan
+				const yearLabel = showYear ? " " + this.fullYear( date ) : ""; 
+				return this.monthName( date ) + yearLabel;
 			}
 		}
 	}
