@@ -21,6 +21,14 @@
 		border-color: grey;
 		border-style: solid;
 	}
+
+	#cal-month-navigator .cal-toolbar {
+		flex-direction: row-reverse;
+	}
+
+	#cal-month-navigator .cal-toolbar > input {
+		display: none;
+	}
 </style>
 
 <script>
