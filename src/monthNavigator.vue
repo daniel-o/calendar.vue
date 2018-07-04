@@ -55,6 +55,13 @@
 			}
 		},
 
+		watch: {
+			// This is to maintain function parity with google calendar.
+			date( value, old ) {
+				this.selectedDate = value;
+			}
+		},
+
 		methods: {
 			changeDate: function( date ) {
 				this.selectedDate = new Date( date );
