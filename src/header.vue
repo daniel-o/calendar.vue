@@ -40,7 +40,7 @@
 
 <script>
 	import RangeLabel from "./dateRange.vue";
-	import { startWeekDate, endWeekDate, monthLength } from "./date-util.js";
+	import { startWeekDate, endWeekDate, monthLength, changeMonth } from "./date-util.js";
 
 	export default {
 		props: [ "date" ],
@@ -50,16 +50,20 @@
 		},
 
 		methods: {
+			changeDate( date ) {
+				this.$emit( "changeDate", date );
+			},
+
 			incrementMonth() {
-				this.$emit( "incrementMonth" );
+				this.changeDate( changeMonth( this.date, 1 ) );
 			},
 
 			decrementMonth() {
-				this.$emit( "decrementMonth" );
+				this.changeDate( changeMonth( this.date, -1 ) );
 			},
 
 			todayDate() {
-				this.$emit( "todayDate" );
+				this.changeDate( Date.now() );
 			}
 		},
 
