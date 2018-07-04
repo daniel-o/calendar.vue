@@ -3,9 +3,7 @@
 		<toolbar
 			:date="selectedDate"
 			ref="toolbar"
-			v-on:incrementMonth="incrementDate"
-			v-on:decrementMonth="decrementDate"
-			v-on:todayDate="setToday"
+			v-on:changeDate="changeDate"
 		></toolbar>
 
 		<month :date="selectedDate"></month>
@@ -50,22 +48,8 @@
 		},
 
 		methods: {
-			changeMonth: function( delta ) {
-				const date = toUTC( this.selectedDate );
-				const currentMonth = date.getMonth();
-				this.selectedDate = toUTC( date.setMonth( currentMonth + delta ) );
-			},
-
-			incrementDate: function() {
-				this.changeMonth( 1 );
-			},
-
-			decrementDate: function() {
-				this.changeMonth( -1 );
-			},
-
-			setToday: function() {
-				this.selectedDate = toUTC( Date.now() );
+			changeDate: function( date ) {
+				this.selectedDate = new Date( date );
 			}
 		}
 	}
