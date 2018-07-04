@@ -1,6 +1,6 @@
 <template id="toolbar-vue">
 	<header class="cal-toolbar">
-		<dateRange :start="startWeekDate" :end="endWeekDate"></dateRange>
+		<date-label :date="date"></date-label>
 
 		<div class="cal-date-control">
 			<input type="button" value="<" v-on:click="decrementMonth" />
@@ -39,14 +39,14 @@
 </style>
 
 <script>
-	import RangeLabel from "./dateRange.vue";
+	import DateLabel from "./dateLabel.vue";
 	import { startWeekDate, endWeekDate, monthLength, changeMonth } from "./date-util.js";
 
 	export default {
 		props: [ "date" ],
 
 		components: {
-			dateRange: RangeLabel
+			DateLabel
 		},
 
 		methods: {
