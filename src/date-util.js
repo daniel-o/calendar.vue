@@ -39,3 +39,8 @@ export function endWeekDate( date ) {
 export function monthLength( date ) {
 	return new Date( date ).setDate( 0 ).getDate();
 }
+
+export function changeMonth( date, delta ) {
+	const currentMonth = date.getMonth();
+	return new Date( date ).setMonth( currentMonth + delta );
+}
