@@ -1,11 +1,12 @@
 <template>
 	<div class="cal-month">
-		<day
+		<div
 			class="cal-date"
 			v-for="day in dateRange"
-			:date="getDay( day )"
 			:key="day.valueOf()"
-		></day>
+		>
+			<slot :date="getDay( day )"></slot>
+		</div>
 	</div>
 </template>
 
@@ -22,14 +23,8 @@
 </style>
 
 <script>
-	import DayVue from "./day.vue";
-
 	export default {
 		props: [ "date" ],
-
-		components: {
-			day: DayVue
-		},
 
 		methods: {
 			getDay: function( date ) {
