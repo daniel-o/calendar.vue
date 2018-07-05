@@ -6,7 +6,9 @@
 			v-on:changeDate="changeDate"
 		></toolbar>
 
-		<month :date="selectedDate"></month>
+		<month :date="selectedDate">
+			<day slot-scope="props" :date="props.date"></day>
+		</month>
 	</nav>
 </template>
 
@@ -34,6 +36,7 @@
 <script>
 	import toolbar from "./header.vue";
 	import MonthVue from "./month.vue";
+	import Day from "./day.vue";
 	import { toUTC } from "./date-util.js";
 
 	export default {
@@ -45,6 +48,7 @@
 		},
 
 		components: {
+			Day,
 			toolbar,
 			"month": MonthVue
 		},
