@@ -45,7 +45,10 @@ export function changeMonth( date, delta ) {
 	return new Date( date ).setMonth( currentMonth + delta );
 }
 
-export function isToday( date ) {
-	const today = new Date( Date.now() ).toLocaleDateString();
-	return new Date( date ).toLocaleDateString() === today;
+function getTimelessDate( date ) {
+	return new Date( date ).toLocaleDateString();
+}
+
+export function dateEquals( one, two ) {
+	return getTimelessDate( one ) === getTimelessDate( two );
 }
