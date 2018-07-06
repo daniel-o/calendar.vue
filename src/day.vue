@@ -1,5 +1,7 @@
 <template>
-	<div class="cal-day" :class="{ 'cal-current-date': isToday }">
+	<div
+		class="cal-day"
+		:class="{ 'cal-current-date': isToday, 'cal-selected-date': isSelected && !isToday }">
 		<a @click="selectDate">{{ this.date.getDate() }}</a>
 	</div>
 </template>
@@ -12,22 +14,33 @@
 		margin: 0.2em;
 		border-radius: 9999px;
 		text-align: center;
+
+		cursor: pointer;
 	}
 
 	.cal-day.cal-current-date {
-		background-color: #dbdde0;
+		color: #d3dbe8;
+		background-color: #4286f4;
+	}
+
+	.cal-day.cal-selected-date {
+		background-color: #d3dbe8;
 	}
 </style>
 
 <script>
-	import { isToday } from "./date-util.js";
+	import { dateEquals } from "./date-util.js";
 
 	export default {
-		props: [ "date", "state" ],
+		props: [ "date", "selectedDate" ],
 
 		computed: {
 			isToday() {
-				return isToday( this.date );
+				return dateEquals( this.date, Date.now() );
+			},
+
+			isSelected() {
+				return dateEquals( this.date, this.selectedDate );
 			}
 		},
 
