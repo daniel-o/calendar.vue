@@ -15,11 +15,13 @@
 		</nav>
 		<main id="cal-content">
 			<div>
-				<month-navigator :date="selectedDate">
+				<month-navigator :date="selectedDate" @selectedDate="changeDate">
 				</month-navigator>
 			</div>
 
-			<month id="cal-main" :date="selectedDate"></month>
+			<month id="cal-main" :date="selectedDate">
+			<div slot-scope="props">{{ new Date( props.date ).getDate() }}</div>
+			</month>
 		</main>
 	</div>
 </template>
