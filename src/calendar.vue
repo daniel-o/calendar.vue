@@ -1,12 +1,3 @@
-/**
- * Events object will store all events in 'day buckets'. Using the date without
- * timestamp as the key. Then each date will hold 'timestamp buckets' containing
- * an array of actual events. All Timestamps will be stored as UTC. Ex:
- * 	"02-04-2017" : {
- * 		"13:30:00" : [ { event: data } ]
- * 	}
- **/
-
 <template>
 	<div id="calendar">
 		<nav id="cal-navbar">
@@ -19,9 +10,8 @@
 				</month-navigator>
 			</div>
 
-			<month id="cal-main" :date="selectedDate">
-			<div slot-scope="props">{{ new Date( props.date ).getDate() }}</div>
-			</month>
+			<component id="cal-main" :is="'month'" :date="selectedDate">
+			</component>
 		</main>
 	</div>
 </template>
@@ -67,7 +57,7 @@
 <script>
 	import { dateStamp, timeStamp, toUTC } from "./date-util.js";
 	import toolbar from "./header.vue";
-	import Month from "./month.vue";
+	import Month from "./monthView/index.vue";
 	import Navigator from "./navigator.vue";
 
 	export default {
