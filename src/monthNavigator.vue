@@ -7,7 +7,11 @@
 		></toolbar>
 
 		<month :date="selectedDate">
-			<day slot-scope="props" :date="props.date"></day>
+			<day
+				slot-scope="props"
+				:date="props.date"
+				v-on="$listeners"
+			></day>
 		</month>
 	</nav>
 </template>
