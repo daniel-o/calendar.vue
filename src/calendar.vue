@@ -68,7 +68,7 @@
 	import { dateStamp, timeStamp, toUTC } from "./date-util.js";
 	import toolbar from "./header.vue";
 	import Month from "./month.vue";
-	import MonthNavigator from "./monthNavigator.vue";
+	import Navigator from "./navigator.vue";
 
 	export default {
 		props: {
@@ -87,7 +87,7 @@
 		components: {
 			toolbar,
 			Month,
-			"month-navigator": MonthNavigator
+			"month-navigator": Navigator
 		},
 
 		methods: {
