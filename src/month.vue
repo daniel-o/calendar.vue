@@ -5,7 +5,7 @@
 			v-for="day in dateRange"
 			:key="day.valueOf()"
 		>
-			<slot :date="getDay( day )"></slot>
+			<slot :date="getDay( day )" :selectedDate="date"></slot>
 		</div>
 	</div>
 </template>

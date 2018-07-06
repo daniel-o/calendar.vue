@@ -10,6 +10,7 @@
 			<day
 				slot-scope="props"
 				:date="props.date"
+				:selectedDate="props.selectedDate"
 				v-on="$listeners"
 			></day>
 		</month>
@@ -34,6 +35,10 @@
 
 	#cal-navigator .cal-toolbar > input {
 		display: none;
+	}
+
+	#cal-navigator .cal-day:not(.cal-current-date):hover {
+		background: #d3dbe8;
 	}
 </style>
 
