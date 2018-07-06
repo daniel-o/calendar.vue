@@ -1,6 +1,6 @@
 <template>
 	<div class="cal-day">
-		<a v-on:click="selectDate">{{ this.date.getDate() }}</a>
+		<a @click="selectDate">{{ this.date.getDate() }}</a>
 	</div>
 </template>
 
@@ -16,7 +16,7 @@
 
 		methods: {
 			selectDate: function() {
-				this.$emit( "change" );
+				this.$emit( "selectedDate", this.date );
 			}
 		}
 	}
