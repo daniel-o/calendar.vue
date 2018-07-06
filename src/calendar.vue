@@ -46,12 +46,6 @@
 		flex: 1;
 		flex-basis: auto;
 	}
-
-	#cal-main .cal-day {
-		border-width: 0 1px 1px 0;
-		border-style: solid;
-		border-color: grey;
-	}
 </style>
 
 <script>
