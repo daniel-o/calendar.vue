@@ -1,5 +1,5 @@
 <template>
-	<nav id="cal-month-navigator">
+	<nav id="cal-navigator">
 		<toolbar
 			:date="selectedDate"
 			ref="toolbar"
@@ -17,7 +17,7 @@
 </template>
 
 <style>
-	#cal-month-navigator {
+	#cal-navigator {
 		display: flex;
 		flex-direction: column;
 
@@ -28,11 +28,11 @@
 		border-style: solid;
 	}
 
-	#cal-month-navigator .cal-toolbar {
+	#cal-navigator .cal-toolbar {
 		flex-direction: row-reverse;
 	}
 
-	#cal-month-navigator .cal-toolbar > input {
+	#cal-navigator .cal-toolbar > input {
 		display: none;
 	}
 </style>
