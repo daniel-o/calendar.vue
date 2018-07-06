@@ -44,3 +44,8 @@ export function changeMonth( date, delta ) {
 	const currentMonth = date.getMonth();
 	return new Date( date ).setMonth( currentMonth + delta );
 }
+
+export function isToday( date ) {
+	const today = new Date( Date.now() ).toLocaleDateString();
+	return new Date( date ).toLocaleDateString() === today;
+}
