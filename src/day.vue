@@ -1,5 +1,5 @@
 <template>
-	<div class="cal-day">
+	<div class="cal-day" :class="{ 'cal-current-date': isToday }">
 		<a @click="selectDate">{{ this.date.getDate() }}</a>
 	</div>
 </template>
@@ -20,8 +20,16 @@
 </style>
 
 <script>
+	import { isToday } from "./date-util.js";
+
 	export default {
 		props: [ "date", "state" ],
+
+		computed: {
+			isToday() {
+				return isToday( this.date );
+			}
+		},
 
 		methods: {
 			selectDate: function() {
