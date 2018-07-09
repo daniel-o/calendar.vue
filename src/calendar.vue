@@ -6,8 +6,8 @@
 		</nav>
 		<main id="cal-content">
 			<div>
-				<month-navigator :date="selectedDate" @selectedDate="changeDate">
-				</month-navigator>
+				<navigator :date="selectedDate" @selectedDate="changeDate">
+				</navigator>
 			</div>
 
 			<component
@@ -17,6 +17,8 @@
 			@createEvent="createEvent">
 			</component>
 		</main>
+
+		<event-dialog ref="event"></event-dialog>
 	</div>
 </template>
 
@@ -58,9 +60,12 @@
 
 <script>
 	import "vue-material/dist/vue-material.min.css";
+
 	import toolbar from "./header.vue";
 	import Month from "./monthView/index.vue";
 	import Navigator from "./navigator.vue";
+	import EventDialog from "./eventDialog.vue";
+	import { monthLength, startWeekDate, endWeekDate } from "./date-util.js";
 
 	export default {
 		props: {
@@ -79,15 +84,29 @@
 		components: {
 			toolbar,
 			Month,
-			"month-navigator": Navigator
+			Navigator,
+			EventDialog
 		},
 
 		methods: {
 			changeDate( date ) {
 				this.selectedDate = new Date( date );
+
+				const firstDateOfMonth = new Date( this.selectedDate ).setDate( 1 );
+				const firstDate = startWeekDate( firstDateOfMonth );
+				const lastDate = endWeekDate( new Date( this.selectedDate ).setDate( monthLength( this.selectedDate ) ) );
+				this.fetchEvents( new Date( firstDate ), new Date( lastDate ) );
 			},
 
 			createEvent( event ) {
+				this.$refs.event.open();
+			},
+
+			fetchEvents( start, end ) {
+				const url = `/events?start=${ start }&end=${ end }`;
+				console.log( url );
+				fetch( url ).then( response => 
+				response.json().then( data => console.log( data ) ) );
 			}
 		}
 	}
