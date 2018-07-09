@@ -23,11 +23,14 @@
 		background-color: grey;
 
 		flex-grow: 1;
-
 	}
 
 	.cal-month > * {
 		background-color: white;
+	}
+
+	.cal-date {
+		overflow: hidden;
 	}
 </style>
 
