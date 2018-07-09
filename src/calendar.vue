@@ -27,6 +27,10 @@
 		height: 100%;
 	}
 
+	*, ::after, ::before {
+		box-sizing: initial;
+	}
+
 	#calendar {
 		display: flex;
 		flex-direction: column;
@@ -53,6 +57,7 @@
 </style>
 
 <script>
+	import "vue-material/dist/vue-material.min.css";
 	import toolbar from "./header.vue";
 	import Month from "./monthView/index.vue";
 	import Navigator from "./navigator.vue";
