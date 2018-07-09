@@ -90,6 +90,10 @@
 			EventDialog
 		},
 
+		created() {
+			this.changeDate( new Date() );
+		},
+
 		methods: {
 			changeDate( date ) {
 				this.selectedDate = new Date( date );
