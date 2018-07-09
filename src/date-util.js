@@ -19,7 +19,8 @@ export function toUTC( datetime ) {
 }
 
 function startDifference( date ) {
-	return date.getDate() - date.getDay();
+	const base = new Date( date );
+	return base.getDate() - base.getDay();
 }
 
 /**
@@ -32,12 +33,13 @@ export function startWeekDate( date ) {
 
 export function endWeekDate( date ) {
 	const weekLength = 6;
-	const day = weekLength - date.getDay() + date.getDate();
+	const base = new Date( date );
+	const day = weekLength - base.getDay() + base.getDate();
 	return new Date( date ).setDate( day );
 }
 
 export function monthLength( date ) {
-	return new Date( date ).setDate( 0 ).getDate();
+	return new Date ( new Date( date ).setDate( 0 ) ).getDate();
 }
 
 export function changeMonth( date, delta ) {
