@@ -18,7 +18,16 @@
 		display: grid;
 		grid-template-columns: repeat( 7, 1fr );
 
+		/* Using grid-gap and bg-color to create "grid lines" */
+		grid-gap: 1px;
+		background-color: grey;
+
 		flex-grow: 1;
+
+	}
+
+	.cal-month > * {
+		background-color: white;
 	}
 </style>
 
