@@ -54,7 +54,7 @@
 			},
 
 			getEvents( date ) {
-				return this.events.filter( event => dateEquals( event.start, date ) ); 
+				return Array.isArray( this.events ) ? this.events.filter( event => dateEquals( event.start, date ) ) : [];
 			}
 		},
 
