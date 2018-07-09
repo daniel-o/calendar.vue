@@ -5,8 +5,8 @@
 			<toolbar :date="selectedDate" @changeDate="changeDate"></toolbar>
 		</nav>
 		<main id="cal-content">
-			<div>
-				<navigator :date="selectedDate" @selectedDate="changeDate">
+			<div id="cal-sidebar">
+				<navigator id="cal-navigator" :date="selectedDate" @selectedDate="changeDate">
 				</navigator>
 			</div>
 
