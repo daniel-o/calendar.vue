@@ -53,7 +53,6 @@
 </style>
 
 <script>
-	import { dateStamp, timeStamp, toUTC } from "./date-util.js";
 	import toolbar from "./header.vue";
 	import Month from "./monthView/index.vue";
 	import Navigator from "./navigator.vue";
