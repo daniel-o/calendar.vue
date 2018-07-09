@@ -2,7 +2,7 @@
 	<month :date="date">
 		<div class="cal-column" slot-scope="props">
 			<day :date="props.date" :selectedDate="date"></day>
-			<event-target :start="props.date"></event-target>
+			<event-target :start="props.date" v-on="$listeners"></event-target>
 		</div>
 	</month>
 </template>
