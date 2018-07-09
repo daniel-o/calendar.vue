@@ -25,7 +25,6 @@ export default {
 	methods: {
 		createEvent() {
 			const eventTimes = { start: this.start, end: this.end }; 
-			console.log( eventTimes );
 			this.$emit( "createEvent", eventTimes );
 		}
 	}
