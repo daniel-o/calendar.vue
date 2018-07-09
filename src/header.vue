@@ -40,7 +40,7 @@
 
 <script>
 	import DateLabel from "./dateLabel.vue";
-	import { startWeekDate, endWeekDate, monthLength, changeMonth } from "./date-util.js";
+	import { startWeekDate, endWeekDate, changeMonth } from "./date-util.js";
 
 	export default {
 		props: [ "date" ],
@@ -74,10 +74,6 @@
 
 			endWeekDate() {
 				return endWeekDate( this.date );
-			},
-
-			monthLength() {
-				return monthLength( this.date );
 			}
 		}
 	}
