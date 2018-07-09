@@ -14,6 +14,7 @@
 		margin: 0.2em;
 		border-radius: 9999px;
 		text-align: center;
+		line-height: 100%;
 
 		cursor: pointer;
 	}
