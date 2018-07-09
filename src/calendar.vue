@@ -14,6 +14,7 @@
 			id="cal-main"
 			:is="'month'"
 			:date="selectedDate"
+	 		:events.sync="events"
 			@createEvent="createEvent">
 			</component>
 		</main>
@@ -77,6 +78,7 @@
 
 		data: function() {
 			return {
+				events: new Array(),
 				selectedDate: new Date()
 			}
 		},
@@ -95,6 +97,7 @@
 				const firstDateOfMonth = new Date( this.selectedDate ).setDate( 1 );
 				const firstDate = startWeekDate( firstDateOfMonth );
 				const lastDate = endWeekDate( new Date( this.selectedDate ).setDate( monthLength( this.selectedDate ) ) );
+
 				this.fetchEvents( new Date( firstDate ), new Date( lastDate ) );
 			},
 
@@ -104,9 +107,8 @@
 
 			fetchEvents( start, end ) {
 				const url = `/events?start=${ start }&end=${ end }`;
-				console.log( url );
 				fetch( url ).then( response => 
-				response.json().then( data => console.log( data ) ) );
+					response.json().then( events => this.events = events ) );
 			}
 		}
 	}
