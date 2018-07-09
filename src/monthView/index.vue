@@ -1,5 +1,5 @@
 <template>
-	<month :date="date">
+	<month :date="date" :events="events">
 		<div class="cal-column" slot-scope="props">
 			<day :date="props.date" :selectedDate="date"></day>
 			<event-target :start="props.date" v-on="$listeners"></event-target>
@@ -22,7 +22,7 @@
 	import EventTarget from "../eventTarget.vue";
 
 	export default {
-		props: [ "date" ],
+		props: [ "date", "events" ],
 
 		components: {
 			Day,
