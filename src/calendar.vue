@@ -52,6 +52,10 @@
 		border-style: solid;
 	}
 
+	#cal-sidebar {
+		flex-shrink: 0;
+	}
+
 	#cal-content {
 		display: flex;
 		flex: 1;
