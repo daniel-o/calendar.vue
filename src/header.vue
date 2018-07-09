@@ -1,13 +1,13 @@
 <template id="toolbar-vue">
 	<header class="cal-toolbar">
-		<date-label :date="date"></date-label>
+		<input type="button" value="Today" v-on:click="todayDate" />
 
 		<div class="cal-date-control">
 			<input type="button" value="<" v-on:click="decrementMonth" />
 			<input type="button" value=">" v-on:click="incrementMonth" />
 		</div>
 
-		<input type="button" value="Today" v-on:click="todayDate" />
+		<date-label :date="date"></date-label>
 	</header>
 </template>
 
