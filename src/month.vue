@@ -5,7 +5,7 @@
 			v-for="day in dateRange"
 			:key="day.valueOf()"
 		>
-			<slot :date="getDay( day )" :selectedDate="date"></slot>
+			<slot :date="getDay( day )" :selectedDate="date" :events="getEvents( getDay( day ) )"></slot>
 		</div>
 	</div>
 </template>
@@ -32,14 +32,26 @@
 </style>
 
 <script>
+	import { dateEquals } from "./date-util.js";
+
 	export default {
-		props: [ "date" ],
+		props: {
+			"date": Date,
+			"events": {
+				type: Array,
+				default: []
+			}
+		},
 
 		methods: {
 			getDay: function( date ) {
 				const delta = date - this.firstDate.getDay();
 				const day =  new Date( this.date ).setDate( delta );
 				return new Date( day );
+			},
+
+			getEvents( date ) {
+				return this.events.filter( event => dateEquals( event.start, date ) ); 
 			}
 		},
 
