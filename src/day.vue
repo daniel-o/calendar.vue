@@ -8,8 +8,8 @@
 
 <style>
 	.cal-day {
-		width: 1em;
-		height: 1em;
+		width: 1.2em;
+		height: 1.2em;
 		padding: 0.2em;
 		margin: 0.2em;
 		border-radius: 9999px;

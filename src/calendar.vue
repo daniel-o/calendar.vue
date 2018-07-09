@@ -54,6 +54,10 @@
 
 	#cal-sidebar {
 		flex-shrink: 0;
+
+		border-width: 0 1px 0 0;
+		border-color: grey;
+		border-style: solid;
 	}
 
 	#cal-content {

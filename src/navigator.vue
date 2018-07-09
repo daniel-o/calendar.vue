@@ -23,10 +23,6 @@
 		flex-direction: column;
 
 		padding: 1em;
-
-		border-width: 0 1px 0 0;
-		border-color: grey;
-		border-style: solid;
 	}
 
 	#cal-navigator .cal-toolbar {
@@ -35,6 +31,10 @@
 
 	#cal-navigator .cal-toolbar > input {
 		display: none;
+	}
+
+	#cal-navigator > .cal-month {
+		grid-gap: 0;
 	}
 
 	#cal-navigator .cal-day:not(.cal-current-date):hover {
