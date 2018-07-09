@@ -10,7 +10,11 @@
 				</month-navigator>
 			</div>
 
-			<component id="cal-main" :is="'month'" :date="selectedDate">
+			<component
+			id="cal-main"
+			:is="'month'"
+			:date="selectedDate"
+			@createEvent="createEvent">
 			</component>
 		</main>
 	</div>
@@ -77,6 +81,9 @@
 		methods: {
 			changeDate( date ) {
 				this.selectedDate = new Date( date );
+			},
+
+			createEvent( event ) {
 			}
 		}
 	}
